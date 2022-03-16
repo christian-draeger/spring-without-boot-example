@@ -2,7 +2,9 @@ package com.example.demo.service
 
 import com.example.demo.model.Course
 import com.example.demo.repository.CourseRepository
+import org.springframework.stereotype.Service
 
+@Service
 class CourseService(
     private val courseRepository: CourseRepository
 ): CrudService<Course> {

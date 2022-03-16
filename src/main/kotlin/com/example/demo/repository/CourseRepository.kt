@@ -1,7 +1,9 @@
 package com.example.demo.repository
 
 import com.example.demo.model.Course
+import org.springframework.stereotype.Repository
 
+@Repository
 class CourseRepository: CrudRepository<Course> {
 
     override fun findAll(): List<Course> {
