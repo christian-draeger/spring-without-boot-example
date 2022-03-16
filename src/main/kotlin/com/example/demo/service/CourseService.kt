@@ -1,23 +1,15 @@
 package com.example.demo.service
 
 import com.example.demo.model.Course
+import com.example.demo.repository.CourseRepository
 
 class CourseService: CrudService<Course> {
 
-    private val courses: MutableList<Course> = mutableListOf()
-
-    init {
-        val spring = Course(
-            id = 1,
-            title = "Getting Started with Spring 5",
-            description = "Learn how to create applications with Spring 5",
-            link = "https://github.com/christian-draeger/spring-without-boot-example"
-        )
-        courses.add(spring)
-    }
+    // again instantiating an object with constructor on our own :(
+    private val repository: CourseRepository = CourseRepository()
 
     override fun list(): List<Course> {
-        return courses
+        return repository.findAll()
     }
 
     override fun create(t: Course): Course {
